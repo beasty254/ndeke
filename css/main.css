@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+      --color-menu-overlay: rgb(78, 245, 28);
+      --color-menu-text: black;
+      --color-divider: black;
+}
+
+::-webkit-scrollbar {
+      display: none;
+    }
+
+*{
+     box-sizing: border-box; 
+}
+
+html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'poppins', sans-serif ,Arial !important;
+      background-color: #000;
+}
+
+
+.wrapper{
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden; /* Ensure the video doesn't overflow the wrapper */
+}
+
+video {
+    position: absolute; /* Position the video absolutely within the wrapper */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure the video fills the wrapper horizontally */
+    height: 100%; /* Ensure the video fills the wrapper vertically */
+    object-fit: cover; /* Ensure the video covers the entire wrapper */
+    z-index: -1; /* Place the video behind other content */
+}
+
+.dark-video {
+      filter: brightness(0.5); /* Decrease brightness to darken the video */
+  }
+
+
+.nav-details {
+      float: left;
+      font-weight: bolder;
+      color: #fff;
+      position: fixed;
+      padding: 1em;
+      height: 12px;
+      left: 0;
+      z-index: 3;
+      position: fixed;
+      top: 20px;
+      cursor: pointer;
+
+      h1{
+            font-size: 25px;
+      }
+}
+
+
+
+.side-strip {
+      position: absolute;
+      top: 90%;
+      transform: translateY(-50%);
+      right: -4em;
+      transform: rotate(90deg);
+      color: #fff;
+      letter-spacing: 4px;
+      cursor: pointer;
+      animation: slideIn 1s infinite alternate;
+
+      
+  span i {
+      animation: bounce 1s infinite alternate; 
+    }
+  }
+
+@keyframes slideIn {
+      0% {
+        transform: translateY(0) rotate(90deg); 
+      }
+      100% {
+        transform: translateY(10px) rotate(90deg); 
+      }
+    }
+
+
+    
+    @keyframes bounce {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(10px);
+      }
+    }
+
+
+
+.header {
+      position: absolute;
+      top: 50%;
+      left: 50%; /* Adjust the left position as needed */
+      transform: translate(-50%, -50%);
+      text-align: left;
+      width: 50%; /* Set the desired width for the paragraph */
+
+}
+
+
+.header p {
+      color: #fff;
+      display: -webkit-box;
+      width: 55%;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; /* Limit the paragraph to 3 lines */
+      overflow: hidden;
+    }
+
+.header h1 {
+      font-size: 4.5rem;
+      color: #fff;
+      font-weight: bolder;
+}
+
+.header h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 300;
+}
+
+
+.header button {
+      margin-top: 12px;
+      border-radius: 40px;
+      border: none;
+      padding: 16px 40px;
+      background: #fff;
+      color: #000;
+      letter-spacing: 4px;
+      font-weight: 600;
+      font-size: 12px;
+}
+
+
+.overlay {
+      z-index: 2000;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background: #ffffff;
+      text-align: center;
+      top: 0%;
+}
+
+.overlay h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      font-weight: bolder;
+      letter-spacing: 12px;
+}
+
+ /* CSS for fullscreen overlay menu */
+ .toggle-btn {
+      position: fixed;
+      padding: 1em;
+      width: 40px;
+      height: 12px;
+      right: 30px;
+      top: 4px;
+      z-index: 1001;
+      font-size: 30px;
+      font-weight: lighter;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      animation: pulsate 1.5s ease infinite;
+  }
+
+  /* Styles for the toggle button when white overlay menu is active */
+.toggle-btn.overlay-active .one,
+.toggle-btn.overlay-active .two {
+    background-color: rgb(0, 0, 0); /* Change to black */
+}
+  
+  
+  
+  @keyframes pulsate {
+      0% {
+          transform: scale(1);
+      }
+      50% {
+          transform: scale(1.1);
+      }
+      100% {
+          transform: scale(1);
+      }
+  }
+
+ span.one {
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: #fff;
+      z-index: 1000;
+
+      span.one:hover{
+            background: #000;
+      }
+ }
+ 
+ span.two {
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: #fff;
+      margin-top: 12px;
+      z-index: 1000;
+
+      span.two:hover{
+            background: #000;
+      }
+
+ }
+
+ 
+ .no-scroll {
+      overflow: hidden;
+  }
+
+ .menu {
+      z-index: 1000;
+      position: fixed;
+      padding: 1rem;
+      background: #000000;
+      height: 100vh;
+      width: 50%;
+      top: -100%;
+      overflow: hidden;
+
+      .open {
+            overflow: hidden;
+        }
+ 
+ .data { 
+      width: 100%;
+      padding: 3rem 2rem;
+    
+ }
+      .line_detail{
+            border-top: 1px solid white; /* Top border */
+            border-bottom: 0.6px solid white; /* Bottom border */
+            color: #ffffff;
+            padding: 1rem 3.5rem;
+            position: relative;
+            margin-left: -1rem; /* Adjust for container padding */
+            margin-right: -1rem; /* Adjust for container padding */
+            display: flex;
+            transition: background-color 0.5s ease;
+
+          h1{
+            margin-right: 30px; /* Adjust margin as needed */
+            font-size: 1.5rem;
+            color: grey;
+            font-weight: 200;
+          }
+
+            span{
+              margin-left: 15rem;
+              color: #000;
+              font-weight: lighter;
+            }
+          
+            a{
+              display: flex;
+              color: #ffffff;
+              font-size: 45px;
+              font-weight: lighter;
+            }
+          
+          
+            }
+          
+          
+          .line_detail::before,
+          .line_detail::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+          }
+          
+          .line_detail::before {
+            top: 0;
+          }
+          
+          .line_detail::after {
+            bottom: 0;
+          }
+          
+          .line_detail:hover {
+            background-color: white;
+            color: #000;
+            cursor: pointer;
+
+            a{      
+            color: #000;
+            font-weight: 200;
+            text-decoration: none;
+            }
+          }
+          
+ }    
+ 
+
+
+
+
+ 
+
+  .white-overlay {
+      position: fixed;
+      padding: 0 4rem;
+      bottom: 0; /* Changed from top to bottom */
+      right: 0;
+      width: 50%;
+      height: 0;
+      background-color: rgb(255, 255, 255);
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: height 0.7s ease; /* Keep the transition as it is */
+      z-index: 1000;
+  }
+
+ 
+
+  
+  .menu-open {
+      height: 100%;
+  }
+
+  .location{
+      max-width: 50%;
+      flex-direction: column;
+      display: flex;
+
+      h4{
+            font-weight: 600; 
+      }
+
+      h6{
+            font-size: .8rem;
+      }
+
+      .line{
+            background: #000;
+      }
+          
+      }
+
+
+      .logo-name{
+            width: 80%;
+            font-weight: bold;
+            font-size: 3rem;
+            opacity: 1;
+            transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+            transform-style: preserve-3d;
+
+            span{
+                  font-weight: 400;
+            }
+      }
+
+
+
+  .social-media {
+      display: flex;
+      flex-direction: column;
+      color: #000000;
+  }
+
+   
+  .follow {
+      font-size: 22px;
+      color: grey; /* Color of the "Follow Us" text */
+      margin-top: 20px; /* Adjust the spacing between "Follow Us" and social media handles */
+  }
+  
+  .handle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      grid-gap: 30px; /* Adjust spacing between grid items */
+
+      span{
+            font-size: 24px;
+      }
+
+      h3{
+            margin-left: 46px;
+            font-size: 13px;
+            font-weight: 300;
+
+          
+      }
+
+      h3:hover{
+            cursor: pointer;
+            text-decoration: underline;
+      }
+
+  }
+
+  /* Style for the circle */
+  .circle {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      border: 1px solid black;
+      border-radius: 50%;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      line-height: 25px;
+      font-size: 20px;
+      font-weight: 200;
+      margin-right: 10px;
+    }
+
+  .line {
+      width: 100%;
+      height: 1px;
+      background-color: #000000; /* Example line color */
+      margin: 20px 0; /* Adjust vertical margin */
+  }
+  
+  .button {
+      margin-left: 25rem;
+      text-decoration: underline;
+      cursor: pointer;
+  }
+  
+  .copy-right {
+      margin: 0 auto;
+      margin-top: auto;
+
+  }
+
+ 
+
+ 
+
+
+ 
+
+    
+
+
+
+@media screen and (max-width: 600px)
+{
+      .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+      }
+
+      .overlay h1 {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+      }
+
+      .menu {
+            padding: 10px; /* Add padding to create space between items */
+            width: 100%;
+        }
+    
+        .logo-name {
+            margin-bottom: 10px; /* Adjust margin below the logo and name for smaller screens */
+        }
+    
+        .data {
+            margin-bottom: 10px; /* Adjust margin below the navigation links for smaller screens */
+        }
+    
+        .social-media {
+            margin-bottom: 30px; /* Adjust margin below the social media handles for smaller screens */
+        }
+
+        .button {
+            margin-top: 10px; /* Adjust margin above the button for smaller screens */
+            display: block; /* Ensure the button is displayed on smaller screens */
+        
+        }
+    }
+
+
+      .header {
+            position: absolute;
+            top: 65%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+      }
+
+      .header p{
+            width: 100%;
+      }  
+
+      .side-strip {
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            right: -4em;
+            letter-spacing: 4px;
+      }
